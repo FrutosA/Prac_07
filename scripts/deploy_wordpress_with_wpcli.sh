@@ -80,4 +80,17 @@ wp theme install sydney --activate
 
 wp theme delete $(wp theme list --status=inactive --field=name)
 
+#Actualizamos los plugins:
+
+wp plugin update --all
+
 #Instalar plugins:
+
+wp plugin install wps-hide-login --activate
+wp plugin install permalink-manager --activate
+wp plugin install disable-media-permalink-by-hardweb-it --activate
+wp pligin install tutor --activate
+
+#Elimininamos plugins que estan inacctivos:
+
+wp plugin delete $(wp plugin list --status=inactive --field=name)
