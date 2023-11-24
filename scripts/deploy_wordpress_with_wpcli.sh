@@ -58,39 +58,39 @@ wp config create \
 
 #Actualización de los plugins
 
-wp plugin update --all
+wp plugin update --all --path=/var/www/html --allow-root
 
 # Actualización de los themes a la última versión
 
-wp theme update --all
+wp theme update --all --path=/var/www/html --allow-root
 
 #Comprobar la versión del core de WordPress
 
-wp core check-update --allow-root
+wp core check-update  --path=/var/www/html --allow-root
 
 #Actualizar el core de WordPress a la última versión
 
-wp core update --allow-root
+wp core update --path=/var/www/html --allow-root
 
 #Instalar y activar un theme (Sysney)
 
-wp theme install sydney --activate
+wp theme install sydney --path=/var/www/html --activate --allow-root
 
 # Eliminar los themes que están inactivos
 
-wp theme delete $(wp theme list --status=inactive --field=name)
+wp theme delete $(wp theme list --status=inactive --field=name --path=/var/www/html --allow-root) --path=/var/www/html --allow-root
 
 #Actualizamos los plugins:
 
-wp plugin update --all
+#wp plugin update --all --allow-root
 
 #Instalar plugins:
 
-wp plugin install wps-hide-login --activate
-wp plugin install permalink-manager --activate
-wp plugin install disable-media-permalink-by-hardweb-it --activate
-wp pligin install tutor --activate
+wp plugin install wps-hide-login --activate  --path=/var/www/html --allow-root
+wp plugin install permalink-manager --activate --path=/var/www/html --allow-root
+wp plugin install disable-media-permalink-by-hardweb-it --activate --path=/var/www/html --allow-root
+wp plugin install tutor --activate --path=/var/www/html --allow-root
 
 #Elimininamos plugins que estan inacctivos:
 
-wp plugin delete $(wp plugin list --status=inactive --field=name)
+wp plugin delete $(wp plugin list --status=inactive --field=name --path=/var/www/html --allow-root) --path=/var/www/html --allow-root
